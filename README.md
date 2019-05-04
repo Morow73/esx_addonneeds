@@ -17,7 +17,7 @@ FXServer ESX Addon Needs
 
 1) script that increases your ability example: when you shoot your shooting ability increases, when you drive your ability to driving increases etc.
 
-2) To be used with esx_gym 
+2) Can be used with esx_gym 
 
 3) you can get a push by consuming cocaine
 
@@ -25,7 +25,7 @@ FXServer ESX Addon Needs
 
 1) script qui augmente vos capacité exemple : quand vous tirez votre habilité au tir augmente, quand vous conduisez votre habilité a la conduite augmente etc 
 
-2) Pour etre utiliser avec esx_gym    
+2) Peut etre utiliser avec esx_gym    
 
 3) vous pouvez bénéficier d'un push en consommant de la cocaine  
 
