@@ -1,6 +1,6 @@
 Config = {}
 
-Config.EnableHud = false -- enable/disable hud status bar
+Config.EnableHud = true -- enable/disable hud status bar
 
 -- decrease or increase exp gain
 
