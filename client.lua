@@ -43,14 +43,18 @@ AddEventHandler('esx_status:loaded', function(status)
 
    TriggerEvent('esx_status:registerStatus', 'force', 0, ' 	#FFD700', ----- jaune 
         function(status)
-          if status.val > 0 then
-            return true
-          else
-            return false
-          end
+            if Config.EnableHud == true then          
+                if status.val > 0 then
+                    return true
+                else
+                    return false
+                end
+            else 
+              return false 
+            end  
         end,
 		function(status)
-			status.remove(150)
+			status.remove(Config.RemoveForce)
 		end
     )
 	
@@ -84,14 +88,18 @@ AddEventHandler('esx_status:loaded', function(status)
 
    TriggerEvent('esx_status:registerStatus', 'drive', 0, '  #FF8C00', -- orange
         function(status)
-          if status.val > 0 then
-            return true
-          else
-            return false
-          end
+            if Config.EnableHud == true then          
+              if status.val > 0 then
+                return true
+              else
+                return false
+              end
+            else 
+                return false 
+            end   
         end,
         function(status)
-            status.remove(150)
+            status.remove(Config.RemoveConduite)
         end
     )
     
@@ -122,14 +130,18 @@ AddEventHandler('esx_status:loaded', function(status)
 
    TriggerEvent('esx_status:registerStatus', 'tir', 0, '  #ffffff', -- blanc
         function(status)
-          if status.val > 0 then
-            return true
-          else
-            return false
-          end
+            if Config.EnableHud == true then  
+              if status.val > 0 then
+                return true
+              else
+                return false
+              end
+            else 
+              return false
+            end   
         end,
         function(status)
-            status.remove(150)
+            status.remove(Config.RemoveTir)
         end
     )
     
@@ -160,14 +172,18 @@ AddEventHandler('esx_status:loaded', function(status)
 
    TriggerEvent('esx_status:registerStatus', 'endu', 0, '  #97784d', -- marron
         function(status)
-          if status.val > 0 then
-            return true
-          else
-            return false
-          end
+            if Config.EnableHud == true then   
+              if status.val > 0 then
+                return true
+              else
+                return false
+              end
+            else 
+                return false
+            end  
         end,
         function(status)
-            status.remove(150)
+            status.remove(Config.RemoveEndurance)
         end
     )
     
@@ -198,14 +214,18 @@ AddEventHandler('esx_status:loaded', function(status)
 
    TriggerEvent('esx_status:registerStatus', 'nage', 0, ' #87dc14', -- vert
         function(status)
-          if status.val > 0 then
-            return true
-          else
-            return false
-          end
+            if Config.EnableHud == true then   
+              if status.val > 0 then
+                return true
+              else
+                return false
+              end
+            else
+              return false
+            end    
         end,
         function(status)
-            status.remove(150)
+            status.remove(Config.RemoveNage)
         end
     )
     
@@ -236,22 +256,21 @@ Citizen.CreateThread(function()
     while true do
         Wait(5000)
 
- 
         if IsPedShooting(GetPlayerPed(-1)) then
-            TriggerEvent('esx_status:add', 'tir', 8500)
+            TriggerEvent('esx_status:add', 'tir', Config.ExpTir)
         elseif IsPedRunning(GetPlayerPed(-1)) then 
-            TriggerEvent('esx_status:add', 'endu', 8000)  
+            TriggerEvent('esx_status:add', 'endu', Config.ExpEndurance)  
         elseif IsPedSwimmingUnderWater(GetPlayerPed(-1)) then
-            TriggerEvent('esx_status:add', 'nage', 8000) 
+            TriggerEvent('esx_status:add', 'nage', Config.ExpNage) 
         elseif IsPedInMeleeCombat(GetPlayerPed(-1)) then 
-            TriggerEvent('esx_status:add', 'force', 8000)  
+            TriggerEvent('esx_status:add', 'force', Config.ExpForce)  
         elseif IsPedInVehicle(GetPlayerPed(-1), GetVehiclePedIsUsing(GetPlayerPed(-1)), true) and GetPedInVehicleSeat(GetVehiclePedIsIn(GetPlayerPed(-1), GetVehiclePedIsUsing(GetPlayerPed(-1))), -1) then
             local vitesse = GetEntitySpeed(GetVehiclePedIsUsing(GetPlayerPed(-1))) * 3.6
             if vitesse >= 100 then
-               TriggerEvent('esx_status:add', 'drive', 6000)
+               TriggerEvent('esx_status:add', 'drive', Config.ExpConduite)
             end               
         end    
-   end
+    end
 end) 
 
 -- coke effect for push
