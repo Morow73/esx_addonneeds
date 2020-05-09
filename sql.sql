@@ -1,3 +1,3 @@
-INSERT INTO `items` (name, label, `limit`) VALUES
-	('coke_pooch', 'Pochon de coke', 10)
+INSERT INTO `items` (name, label, `weight`) VALUES
+	('coke_pooch', 'Pochon de coke', 1)
 ;
