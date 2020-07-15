@@ -3,7 +3,7 @@ FXServer ESX Addon Needs
 
 [REQUIREMENTS]
 
-- es_extended => https://github.com/ESX-Org/es_extended
+- es_extended => https://github.com/ESX-Org/es_extended/tree/v1-final
 
 - esx_status => https://github.com/FXServer-ESX/fxserver-esx_status
 
